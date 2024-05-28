@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import useFetch from '../FetchData/useFetch';
-// import './Corousals.css'; // Import the CSS file
+import Spinner from 'react-bootstrap/Spinner';
 
 const Corousals = () => {
   const { data, error, isLoading } = useFetch('http://localhost:8080/slide');
@@ -17,7 +17,13 @@ const Corousals = () => {
   return (
     <div className='corousal'>
       {error && <div>{error}</div>}
-      {isLoading && <div>Loading...</div>}
+      {isLoading && 
+        <div className="d-flex justify-content-center align-items-center vh-100">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      }
       {data && (
         <Carousel data-bs-theme="light">
           {data.map((discount) => (

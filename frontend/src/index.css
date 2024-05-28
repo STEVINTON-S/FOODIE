@@ -2,40 +2,46 @@ body{
     margin: 0;
     padding: 0;
 }
-
-.navBar{
-    background-color: #9ca3a3;
-    height: 4rem;
-}
-
-.navBar li a:hover{
-    background-color: white;
-}
-
-.navBar li button:hover{
-    background-color: white;
-}
-
 .custom-offcanvas {
-    background-color: #1f0344;
-    color: white;
-  }
-  
-  .custom-offcanvas .offcanvas-header {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    border-bottom: 1px solid black;
-    border-radius: 30px;
-  }
-  
-  .custom-offcanvas .offcanvas-body {
-    background-color: white;
-    color: black;
-  }
-  
-.logo{
-    width: 30rem;
+  background-color: #f8f9fa;
 }
+
+.offcanvas-body {
+  padding: 1rem;
+}
+
+.profile {
+  border: none;
+  background-color: transparent;
+}
+
+.profile:hover {
+  background-color: #e9ecef;
+}
+
+.nav-link {
+  color: #495057;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #e2e6ea;
+  color: #000;
+}
+
+.nav-link.text-danger {
+  color: #dc3545;
+}
+
+.nav-link.text-danger:hover {
+  background-color: #f8d7da;
+  color: #c82333;
+}
+
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -166,24 +172,56 @@ body, html {
 
 /* NavBar */
 .navbar-container {
-  width: 100%;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo-text {
-  margin: 0;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo-img {
-  width: 50px; /* Adjust the width as needed */
+  width: 50px;
   height: auto;
 }
 
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+}
+
 .navBar {
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+
+.nav-link-custom {
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.nav-link-custom:hover {
+  background-color: #f1f1f1;
+}
+
+.profile {
+  border: none; 
+  background-color: transparent;
+}
+
+.profile:hover {
+  background-color: #e9ecef;
+}
+
+
+.zoom-effect {
+  transition: transform 0.3s ease;
+}
+
+.zoom-effect:hover {
+  transform: scale(1.05);
+}
+
+/* Search Bar */
+
+.searchBar{
   display: flex;
-  align-items: center;
+  flex-direction: row;
 }

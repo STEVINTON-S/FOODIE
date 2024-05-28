@@ -14,7 +14,7 @@ const Cart = ({ id }) => {
             localStorage.clear();
             setItems({});
         };
-        const intervalId = setInterval(clearLocalStorageHourly, 60000); // Clear every hour
+        const intervalId = setInterval(clearLocalStorageHourly, 60000);
 
         return () => clearInterval(intervalId);
     }, []);
