@@ -1,0 +1,189 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.navBar{
+    background-color: #9ca3a3;
+    height: 4rem;
+}
+
+.navBar li a:hover{
+    background-color: white;
+}
+
+.navBar li button:hover{
+    background-color: white;
+}
+
+.custom-offcanvas {
+    background-color: #1f0344;
+    color: white;
+  }
+  
+  .custom-offcanvas .offcanvas-header {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-bottom: 1px solid black;
+    border-radius: 30px;
+  }
+  
+  .custom-offcanvas .offcanvas-body {
+    background-color: white;
+    color: black;
+  }
+  
+.logo{
+    width: 30rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+  background-color: black;
+  border-radius: 50%;
+}
+
+.carousel-caption h1,
+.carousel-caption p {
+  color: black;
+}
+
+.content{
+  border-radius: 10px;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+.corousal {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  top: -3%;
+}
+
+.carousel-item-custom img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.navbar-container {
+  position: sticky;
+  top: 0%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.profile {
+  background: none;
+  border: none;
+}
+
+.offcanvas-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-body a{
+  text-decoration: none;
+  padding: 1rem;
+  color: black;
+  border-bottom: 1px solid black;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+
+.offcanvas-body a:hover{
+  background-color: #9ca3a3;
+}
+
+.cartImage{
+  width: 7rem;
+  height: 7rem;
+}
+
+.cartBtn{
+  border: 1px black solid;
+  width: 5rem;
+}
+
+.cartBtn button{
+  background-color: transparent;
+  border: none;
+}
+
+/* Card Payment */
+
+.cart-payment {
+  width: 50%;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cart-table, .total-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td, .total-table th, .total-table td {
+  padding: 8px;
+  text-align: right;
+}
+
+.text-end {
+  text-align: right;
+}
+
+.cartImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+
+.cartBtn button {
+  width: 30px;
+  height: 30px;
+}
+
+/* NavBar */
+.navbar-container {
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  margin: 0;
+}
+
+.logo-img {
+  width: 50px; /* Adjust the width as needed */
+  height: auto;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+}
