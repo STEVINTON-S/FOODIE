@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -6,24 +7,18 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const abortCont = new AbortController();
+    const source = axios.CancelToken.source();
+
     const timeoutId = setTimeout(() => {
-      fetch(url, { signal: abortCont.signal })
+      axios.get(url, { cancelToken: source.token })
         .then((res) => {
-          if (!res.ok) {
-            console.log(res);
-            throw Error("Could not fetch the resource");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setData(data);
+          setData(res.data);
           setIsLoading(false);
           setError(null);
         })
         .catch((err) => {
-          if (err.name === "AbortError") {
-            console.log("Fetch aborted");
+          if (axios.isCancel(err)) {
+            console.log("Request canceled");
           } else {
             setIsLoading(false);
             setError(err.message);
@@ -33,7 +28,7 @@ const useFetch = (url) => {
 
     return () => {
       clearTimeout(timeoutId);
-      abortCont.abort();
+      source.cancel("Request canceled by cleanup");
     };
   }, [url]);
 

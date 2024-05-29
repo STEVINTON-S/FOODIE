@@ -10,8 +10,6 @@ const CartPayment = ({ fetchedItems }) => {
     setTotal(tot);
   }, [fetchedItems]);
 
-  console.log(total);
-
   return (
     <div className="cart-payment">
       <table className="cart-table">
@@ -23,11 +21,11 @@ const CartPayment = ({ fetchedItems }) => {
           </tr>
         </thead>
         <tbody className="border-bottom">
-          {fetchedItems && fetchedItems.map((item, index) => (
+          {fetchedItems.map((item, index) => (
             <tr key={index}>
-              <td>{item.name}</td>
+              <td>{item.strMeal}</td>
               <td>{item.count}</td>
-              <td>{item.price * item.count}</td>
+              <td>${(item.price * item.count).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
@@ -36,11 +34,11 @@ const CartPayment = ({ fetchedItems }) => {
         <thead>
           <tr>
             <th>Total</th>
-            <th>$ {total > 0 ? (total.toFixed(2)) : 0}</th>
+            <th>${total.toFixed(2)}</th>
           </tr>
         </thead>
       </table>
-      <button className='btn btn-success'>Proceed Payment $ {total > 0 ? (total.toFixed(2)) : 0}</button>
+      <button className='btn btn-success'>Proceed Payment ${total.toFixed(2)}</button>
     </div>
   );
 };

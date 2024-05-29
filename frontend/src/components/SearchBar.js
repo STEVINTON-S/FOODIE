@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import useFetch from '../FetchData/useFetch';
 
-const SearchBar = ({ handleCategory, handleSearch, handleSortBy }) => {
+const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }) => {
   const { data, error, isLoading } = useFetch('http://localhost:8080/foods');
   const [item, setItem] = useState('');
+  const [categories, setCategories] = useState([]);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    if (data) {
+      const uniqueCategories = [...new Set(data.map(item => item.strCategory))];
+      const uniqueCountries = [...new Set(data.map(item => item.strArea))];
+      setCategories(uniqueCategories);
+      setCountries(uniqueCountries);
+    }
+  }, [data]);
 
   const handleInputChange = (e) => {
     setItem(e.target.value);
@@ -16,6 +27,11 @@ const SearchBar = ({ handleCategory, handleSearch, handleSortBy }) => {
     handleCategory(category);
   };
 
+  const handleSelectCountry = (country) => {
+    setItem('');
+    handleCountry(country);
+  };
+
   return (
     <div className='searchBar m-5'>
       <Dropdown className='mx-5'>
@@ -23,14 +39,8 @@ const SearchBar = ({ handleCategory, handleSearch, handleSortBy }) => {
           Sort By
         </Dropdown.Toggle>
         <Dropdown.Menu>
-        <Dropdown.Item onClick={() => handleSortBy('all')}>
+          <Dropdown.Item onClick={() => handleSortBy('all')}>
             All
-          </Dropdown.Item>
-          <Dropdown.Item onClick={() => handleSortBy('delivery_time')}>
-            Delivery Time
-          </Dropdown.Item>
-          <Dropdown.Item onClick={() => handleSortBy('rating')}>
-            Rating
           </Dropdown.Item>
           <Dropdown.Item onClick={() => handleSortBy('cost_low_to_high')}>
             Cost: Low to High
@@ -48,15 +58,32 @@ const SearchBar = ({ handleCategory, handleSearch, handleSortBy }) => {
           <Dropdown.Item onClick={() => handleSelectCategory('All')}>
             All
           </Dropdown.Item>
-          {data &&
-            data.map((item) => (
-              <Dropdown.Item
-                onClick={() => handleSelectCategory(item.category)}
-                key={item.id}
-              >
-                {item.category}
-              </Dropdown.Item>
-            ))}
+          {categories.map((category, index) => (
+            <Dropdown.Item
+              onClick={() => handleSelectCategory(category)}
+              key={index}
+            >
+              {category}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+      <Dropdown className='mx-5'>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Cuisine
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item onClick={() => handleSelectCountry('All')}>
+            All
+          </Dropdown.Item>
+          {countries.map((country, index) => (
+            <Dropdown.Item
+              onClick={() => handleSelectCountry(country)}
+              key={index}
+            >
+              {country}
+            </Dropdown.Item>
+          ))}
         </Dropdown.Menu>
       </Dropdown>
       <form className="d-flex w-50 searchBar mx-5">

@@ -8,7 +8,7 @@ import Cart from './Cart';
 import Modal from 'react-bootstrap/Modal';
 import Spinner from 'react-bootstrap/Spinner';
 
-const Items = ({ category, searchTerm, sortCriteria }) => {
+const Items = ({ category, country, searchTerm, sortCriteria }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const { data, error, isLoading } = useFetch('http://localhost:8080/foods');
   const [filteredData, setFilteredData] = useState([]);
@@ -17,34 +17,38 @@ const Items = ({ category, searchTerm, sortCriteria }) => {
     if (data) {
       let filtered = data.filter((item) => {
         if (category && category !== 'All') {
-          return item.category === category;
+          return item.strCategory === category;
         }
         return true;
       }).filter((item) => {
-        return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+        if (country && country !== 'All') {
+          return item.strArea === country;
+        }
+        return true;
+      }).filter((item) => {
+        return item.strMeal.toLowerCase().includes(searchTerm.toLowerCase());
       });
 
       switch (sortCriteria) {
         case 'delivery_time':
-          filtered = filtered.sort((a, b) => a.expected_delivery_time.localeCompare(b.expected_delivery_time));
+          filtered = filtered.sort((a, b) => a.strArea.localeCompare(b.strArea));
           break;
         case 'rating':
-          filtered = filtered.sort((a, b) => b.rating - a.rating);
+          // There is no rating field in the schema
           break;
         case 'cost_low_to_high':
-          filtered = filtered.sort((a, b) => a.price - b.price);
+          filtered = filtered.sort((a, b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)));
           break;
         case 'cost_high_to_low':
-          filtered = filtered.sort((a, b) => b.price - a.price);
+          filtered = filtered.sort((a, b) => parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)));
           break;
         default:
           break;
       }
-      
 
       setFilteredData(filtered);
     }
-  }, [data, category, searchTerm, sortCriteria]);
+  }, [data, category, country, searchTerm, sortCriteria]);
 
   const handleSelectItem = (item) => {
     setSelectedItem(item);
@@ -67,22 +71,22 @@ const Items = ({ category, searchTerm, sortCriteria }) => {
       {filteredData && (
         <Row>
           {filteredData.map((item) => (
-            <Col key={item.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
+            <Col key={item.idMeal} xs={12} sm={6} md={4} lg={3} className="mb-4">
               <Card
                 className="zoom-effect"
                 style={{ backgroundColor: '#E1F7F5' }}
               >
                 <Card.Img
                   variant="top"
-                  src={item.image}
+                  src={item.strMealThumb}
                   style={{ width: '100%', height: '200px', objectFit: 'cover' }}
                   onClick={() => handleSelectItem(item)}  
                 />
                 <Card.Body>
-                  <Card.Title>{item.name}</Card.Title>
-                  <Card.Text>${item.price}</Card.Text>
-                  <Card.Text>Delivered by {item.expected_delivery_time}</Card.Text>
-                  <Cart id={item.id} />
+                  <Card.Title>{item.strMeal}</Card.Title>
+                  <Card.Text>{item.price}</Card.Text>
+                  <Card.Text>Delivered by {item.strArea}</Card.Text>
+                  <Cart id={item.idMeal} />
                 </Card.Body>
               </Card>
             </Col>
@@ -91,15 +95,22 @@ const Items = ({ category, searchTerm, sortCriteria }) => {
       )}
       <Modal show={selectedItem !== null} onHide={handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title>{selectedItem && selectedItem.name}</Modal.Title>
+          <Modal.Title>{selectedItem && selectedItem.strMeal}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {selectedItem && (
             <>
-              <img src={selectedItem.image} alt={selectedItem.name} style={{ width: '100%', marginBottom: '20px' }} />
-              <p>Price: ${selectedItem.price}</p>
-              <p>Expected Delivery Time: {selectedItem.expected_delivery_time}</p>
-              <p>⭐{selectedItem.rating}/5</p>
+              <img src={selectedItem.strMealThumb} alt={selectedItem.strMeal} style={{ width: '100%', marginBottom: '20px' }} />
+              <p>Price: {selectedItem.price}</p>
+              <p>Area: {selectedItem.strArea}</p>
+              <p>Category: {selectedItem.strCategory}</p>
+              {selectedItem.ingredients && (
+                <ul>
+                  {selectedItem.ingredients.split(', ').map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                  ))}
+                </ul>
+              )}
             </>
           )}
         </Modal.Body>

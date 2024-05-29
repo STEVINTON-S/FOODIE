@@ -8,11 +8,15 @@ const Corousals = () => {
 
   useEffect(() => {
     if (data) {
-      data.forEach((res) => {
-        console.log(res.id);
+      data.map((res) => {
+        console.log(res);
       });
     }
   }, [data]);
+
+  const handleDiscount = (food, discount) =>{
+    console.log(food, discount);
+  }
 
   return (
     <div className='corousal'>
@@ -27,15 +31,15 @@ const Corousals = () => {
       {data && (
         <Carousel data-bs-theme="light">
           {data.map((discount) => (
-            <Carousel.Item key={discount.id}>
+            <Carousel.Item key={discount._id}>
               <div className="carousel-item-custom">
                 <img
                   className="d-block w-100 carousel-img"
-                  src={discount.image}
-                  alt={`Slide ${discount.id}`}
+                  src={discount.thumbNailImg}
+                  alt={`Slide ${discount._id}`}
                 />
                 <Carousel.Caption>
-                  <h1>{discount.caption}</h1>
+                  <button onClick={() => handleDiscount(discount.dishId, discount.offer)} className='btn btn-primary zoom-effect'>Get Offer</button>
                 </Carousel.Caption>
               </div>
             </Carousel.Item>

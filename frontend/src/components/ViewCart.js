@@ -16,7 +16,7 @@ const ViewCart = () => {
     const fetchItems = async () => {
       const items = getItemsFromLocalStorage();
       const itemArray = Object.entries(items).map(([id, count]) => ({ id, count }));
-      
+
       try {
         const results = await Promise.all(
           itemArray.map(async ({ id, count }) => {
@@ -25,7 +25,8 @@ const ViewCart = () => {
               throw new Error(`Failed to fetch item with id ${id}`);
             }
             const data = await response.json();
-            return { ...data, count };
+            console.log('Fetched item:', data); // Logging fetched data for debugging
+            return { ...data, count, price: parseFloat(data.price.replace('$', '')) }; // Ensure price is a number
           })
         );
         setFetchedItems(results);
@@ -45,7 +46,7 @@ const ViewCart = () => {
     localStorage.setItem('items', JSON.stringify(newItems));
     setFetchedItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, count: item.count + 1 } : item
+        item._id === id ? { ...item, count: item.count + 1 } : item
       )
     );
   };
@@ -60,7 +61,7 @@ const ViewCart = () => {
       localStorage.setItem('items', JSON.stringify(newItems));
       setFetchedItems((prevItems) =>
         prevItems.map((item) =>
-          item.id === id && item.count > 1 ? { ...item, count: item.count - 1 } : item
+          item._id === id && item.count > 1 ? { ...item, count: item.count - 1 } : item
         )
       );
     }
@@ -74,15 +75,16 @@ const ViewCart = () => {
       {fetchedItems.length > 0 ? (
         <ul className="list-group mb-4">
           {fetchedItems.map((item, index) => (
-            <li key={index} className="list-group-item">
+            <li key={index} className="list-group-item m-2">
               <div className="d-flex align-items-center">
-                <img src={item.image} alt={item.name} className="cartImage img-fluid me-3" />
+                <img src={item.strMealThumb} alt={item.strMeal} className="cartImage img-fluid me-3" />
                 <div className="flex-grow-1">
-                  <p className="mb-1"><strong>{item.name}</strong></p>
+                  <p className="mb-1"><strong>{item.strMeal}</strong></p>
+                  <p className="mb-1"><strong>Price: </strong>${item.price.toFixed(2)}</p>
                   <div className="d-flex align-items-center">
-                    <button onClick={() => handleDecrement(item.id)} className="btn btn-outline-secondary btn-sm me-2">-</button>
+                    <button onClick={() => handleDecrement(item._id)} className="btn btn-outline-secondary btn-sm me-2">-</button>
                     <p className="mb-0 me-2">{item.count}</p>
-                    <button onClick={() => handleIncrement(item.id)} className="btn btn-outline-secondary btn-sm">+</button>
+                    <button onClick={() => handleIncrement(item._id)} className="btn btn-outline-secondary btn-sm">+</button>
                   </div>
                 </div>
               </div>
