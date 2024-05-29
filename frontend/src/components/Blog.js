@@ -1,15 +1,28 @@
 import React from 'react';
 import useFetch from '../FetchData/useFetch';
-import { Link } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import { FaStar, FaRegStar } from 'react-icons/fa';
 
 const Blog = () => {
   const { data, error, isLoading } = useFetch('http://localhost:8080/blog');
 
+  const renderStars = (rating) => {
+    const stars = [];
+    const filledStars = Math.floor(rating);
+    const emptyStars = 5 - filledStars;
+    for (let i = 0; i < filledStars; i++) {
+      stars.push(<FaStar key={i} className="text-warning" />);
+    }
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<FaRegStar key={filledStars + i} className="text-secondary" />);
+    }
+    return stars;
+  };
+
   return (
     <div>
-      <h1 className='m-5 text-body-emphasis w-50 '>Blog Page</h1>
-      {error && <div>{error.message}</div>}
+      <h1 className='m-5 text-body-emphasis w-50'>Blog Page</h1>
+      {error && <div className="alert alert-danger">{error.message}</div>}
       {isLoading && 
         <div className="d-flex justify-content-center align-items-center vh-100">
           <Spinner animation="border" role="status">
@@ -19,14 +32,18 @@ const Blog = () => {
       }
       {data &&
         data.map((blog) => (
-          <div className="content bg-light m-5 border border-primary d-flex flex-column position-relative" key={blog.id}>
-            <h2 className='m-4'>{blog.name}</h2>
-            <h5 className='m-4'>Blog Posted by, {blog.blogger}</h5>
-            <Link to={`/blog/${blog.id}`}>
-              <button className='btn btn-outline-primary position-absolute top-0 end-0 m-4'>
-                More...
-              </button>
-            </Link>
+          <div key={blog._id} className="card m-5 position-relative">
+            <div className="card-body">
+              <h2 className='card-title'>{blog.name}</h2>
+              <h5 className='card-subtitle mb-2 text-muted'>Dish Name, {blog.dish}</h5>
+              <p className="card-text">{blog.description}</p>
+              <p className="card-text">Recipe: {blog.recipe}</p>
+            </div>
+            <div className="position-absolute top-0 end-0 m-3">
+              <div className="d-flex align-items-center">
+                {renderStars(blog.rating)}
+              </div>
+            </div>
           </div>
         ))
       }

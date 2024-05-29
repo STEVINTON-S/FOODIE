@@ -6,7 +6,6 @@ import Blog from './components/Blog';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './components/SideBar';
 import Help from './components/Help';
-import SelectedBlog from './components/SelectedBlog';
 import CreateBlog from './components/CreateBlog';
 import ViewCart from './components/ViewCart';
 // import Footer from './components/Footer';
@@ -32,7 +31,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path='/blog' element={<Blog/>}/>
             <Route path='/help' element={<Help/>}/>
-            <Route path='/blog/:id' element={<SelectedBlog/>}/>
             <Route path='/blog/create' element={<CreateBlog/>}/>
             <Route path='/cart' element={<ViewCart/>}/>
           </Routes>

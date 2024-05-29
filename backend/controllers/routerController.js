@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { slidesData } = require('../models/dataModels');
+const { slidesData, BlogsData } = require('../models/dataModels');
 
 const mainPage = async (req, res) =>{
     res.send({ msg: 'Welcome to the MealDB API' });
@@ -60,10 +60,67 @@ const createSlides = async (req, res) =>{
     }
 }
 
+// for blog creation
+const createBlogs = async (req, res) =>{
+    try{
+        const {name, dish, description, rating, recipe} = req.body;
+
+        const newBlog = new BlogsData({
+            name: name,
+            dish: dish,
+            description: description,
+            rating: rating,
+            recipe: recipe
+        })
+
+        const saveBlog = await newBlog.save()
+            .then(() =>{
+                res.json({msg: 'data is insered...'});
+            })
+            .catch((err) =>{
+                res.json({msg: err.message});
+            })
+        
+        res.status(201).json(saveBlog);
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
+// for showing the blog
+const showBlog = async (req, res) =>{
+    try{
+        const connection = mongoose.connection.db.collection('blogsdatas');
+        const blogs = await connection.find().toArray();
+        res.json(blogs);
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+}
+
+// for the Specific Blog
+const getSpecificBlog = async (req, res) =>{
+    try {
+        const connection = mongoose.connection.db.collection('blogsdatas');
+        const blog = await connection.findOne({ _id: req.params.id });
+        if (!blog) {
+            return res.status(404).json({ message: 'Blog not found' });
+        }
+        res.json(blog);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+}
+
 module.exports = {
     mainPage,
     showFoods,
     showSpecifiedFood, 
     getSlides,
-    createSlides
+    createSlides,
+    createBlogs,
+    showBlog,
+    getSpecificBlog
 }
