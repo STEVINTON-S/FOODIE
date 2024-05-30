@@ -74,7 +74,7 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
             <Col key={item.idMeal} xs={12} sm={6} md={4} lg={3} className="mb-4">
               <Card
                 className="zoom-effect"
-                style={{ backgroundColor: '#E1F7F5' }}
+                style={{ backgroundColor: '#baf8da', border: '#13824d 1px solid'}}
               >
                 <Card.Img
                   variant="top"
@@ -82,7 +82,7 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
                   style={{ width: '100%', height: '200px', objectFit: 'cover' }}
                   onClick={() => handleSelectItem(item)}  
                 />
-                <Card.Body>
+                <Card.Body style={{color: '#042f1d'}}>
                   <Card.Title>{item.strMeal}</Card.Title>
                   <Card.Text>{item.price}</Card.Text>
                   <Card.Text>Delivered by {item.strArea}</Card.Text>
@@ -93,7 +93,7 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
           ))}
         </Row>
       )}
-      <Modal show={selectedItem !== null} onHide={handleCloseModal}>
+      <Modal show={selectedItem !== null} onHide={handleCloseModal} className='model'>
         <Modal.Header closeButton>
           <Modal.Title>{selectedItem && selectedItem.strMeal}</Modal.Title>
         </Modal.Header>
@@ -111,10 +111,12 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
                   ))}
                 </ul>
               )}
+              <Cart id={selectedItem.idMeal} />
             </>
           )}
         </Modal.Body>
       </Modal>
+
     </Container>
   );
 };

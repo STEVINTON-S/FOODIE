@@ -13,6 +13,10 @@ const createSlides = new schema({
     offer:{
         type: Number,
         required: true
+    },
+    content:{
+      type: String,
+      required: true
     }
 });
 
@@ -38,11 +42,24 @@ const blogSchema = new schema({
       required: true
     }
   });
+
+  const helpSchema = new mongoose.Schema({
+    name: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+  });
   
 const slidesData = mongoose.model('slidesData', createSlides);
 const BlogsData = mongoose.model('BlogsData', blogSchema);
+const Help = mongoose.model('Help', helpSchema);
 
 module.exports = {
     slidesData,
-    BlogsData
+    BlogsData,
+    Help
 }

@@ -8,7 +8,8 @@ const usePostData = (url) => {
   const postData = async (data) => {
     setIsLoading(true);
     try {
-      const response = await axios.post(url, data);
+      const response = await axios.post(url, data)
+        .then(() => console.log("data inserted"))
       setIsLoading(false);
       return response.data;
     } catch (error) {

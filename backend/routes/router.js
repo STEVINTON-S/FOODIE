@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { mainPage, showFoods, showSpecifiedFood, getSlides, createSlides, showBlog, createBlogs, getSpecificBlog } = require('../controllers/routerController');
+const { mainPage, showFoods, showSpecifiedFood, getSlides, createSlides, showBlog, createBlogs, getHelp, showHelp } = require('../controllers/routerController');
 
 // main page
 router.get('/', mainPage);
@@ -16,5 +16,10 @@ router.post('/createSlide', createSlides);
 // for the blogs creation and view
 router.post('/blog/create', createBlogs);
 router.get('/blog', showBlog)
+
+// for the help support
+router.post('/help', getHelp);
+// show the help content only for the administrator
+router.get('/showHelp', showHelp)
 
 module.exports = router;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PaymentBtn from './buttons/PaymentBtn.js';
 
 const CartPayment = ({ fetchedItems }) => {
   const [total, setTotal] = useState(0);
@@ -38,7 +39,7 @@ const CartPayment = ({ fetchedItems }) => {
           </tr>
         </thead>
       </table>
-      <button className='btn btn-success'>Proceed Payment ${total.toFixed(2)}</button>
+      <PaymentBtn total={`Proceed Payment ${total.toFixed(2)}`}/>
     </div>
   );
 };

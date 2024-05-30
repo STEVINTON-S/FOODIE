@@ -38,8 +38,10 @@ const Corousals = () => {
                   src={discount.thumbNailImg}
                   alt={`Slide ${discount._id}`}
                 />
-                <Carousel.Caption>
-                  <button onClick={() => handleDiscount(discount.dishId, discount.offer)} className='btn btn-primary zoom-effect'>Get Offer</button>
+                <Carousel.Caption className='parent-container'>
+                <h1 style={{color:'#35de8d'}}>Get {discount.offer} by</h1> 
+                <h3 style={{color:'#35de8d'}}>{discount.content}</h3>
+                <button onClick={() => handleDiscount(discount.dishId, discount.offer)} class="btn-60"><span style={{backgroundColor:'#1fc877'}}>Get Offer</span></button>
                 </Carousel.Caption>
               </div>
             </Carousel.Item>

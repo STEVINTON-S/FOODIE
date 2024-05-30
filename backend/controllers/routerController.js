@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { slidesData, BlogsData } = require('../models/dataModels');
+const { slidesData, BlogsData, Help  } = require('../models/dataModels');
 
 const mainPage = async (req, res) =>{
     res.send({ msg: 'Welcome to the MealDB API' });
@@ -99,18 +99,32 @@ const showBlog = async (req, res) =>{
     }
 }
 
-// for the Specific Blog
-const getSpecificBlog = async (req, res) =>{
+// for the Help support
+const getHelp = async (req, res) => {
     try {
-        const connection = mongoose.connection.db.collection('blogsdatas');
-        const blog = await connection.findOne({ _id: req.params.id });
-        if (!blog) {
-            return res.status(404).json({ message: 'Blog not found' });
-        }
-        res.json(blog);
+      const { name, description } = req.body;
+  
+      const newHelp = new Help({
+        name,
+        description,
+      });
+  
+      const savedHelp = await newHelp.save();
+      res.status(201).json({ msg: 'Data is inserted...', data: savedHelp });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: err.message });
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+// for showing help message to the administrator
+const showHelp = async (req, res) =>{
+    try{
+        const connection = mongoose.connection.db.collection('helps');
+        const helps = await connection.find().toArray();
+        res.json(helps);
+    }catch(err){
+        res.status(500).json({error: err.message});
     }
 }
 
@@ -122,5 +136,6 @@ module.exports = {
     createSlides,
     createBlogs,
     showBlog,
-    getSpecificBlog
+    getHelp,
+    showHelp
 }
