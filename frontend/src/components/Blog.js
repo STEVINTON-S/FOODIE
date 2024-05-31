@@ -1,7 +1,7 @@
 import React from 'react';
 import useFetch from '../FetchData/useFetch';
-import Spinner from 'react-bootstrap/Spinner';
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import Loading from './loadCintent/Loading';
 
 const Blog = () => {
   const { data, error, isLoading } = useFetch('http://localhost:8080/blog');
@@ -25,9 +25,7 @@ const Blog = () => {
       {error && <div className="alert alert-danger">{error.message}</div>}
       {isLoading && 
         <div className="d-flex justify-content-center align-items-center vh-100">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
+          <Loading />
         </div>
       }
       {data &&

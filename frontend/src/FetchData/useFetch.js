@@ -24,7 +24,7 @@ const useFetch = (url) => {
             setError(err.message);
           }
         });
-    }, 1000);
+    }, 3000);
 
     return () => {
       clearTimeout(timeoutId);

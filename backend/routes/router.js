@@ -1,28 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const { mainPage, showFoods, showSpecifiedFood, getSlides, createSlides, showBlog, createBlogs, getHelp, showHelp, createStaffUser } = require('../controllers/routerController');
+const {
+  mainPage,
+  showFoods,
+  showSpecifiedFood,
+  getSlides,
+  createSlides,
+  showBlog,
+  createBlogs,
+  getHelp,
+  showHelp,
+  createStaffUser
+} = require('../controllers/routerController');
 
-// main page
+// Main page
 router.get('/', mainPage);
 
-// for the meals page
+// Meals endpoints
 router.get('/foods', showFoods);
 router.get('/foods/:id', showSpecifiedFood);
 
-// for the slides for the discount slides and slideshow, for the both insert and creation
+// Slides endpoints
 router.get('/slide', getSlides);
 router.post('/admin/discounts', createSlides);
 
-// for the blogs creation and view
+// Blogs endpoints
+router.get('/blog', showBlog);
 router.post('/blog/create', createBlogs);
-router.get('/blog', showBlog)
 
-// for the help support
+// Help endpoints
 router.post('/help', getHelp);
-// show the help content only for the administrator
 router.get('/showHelp', showHelp);
 
-// for create staff user
-router.post('/admin/createUser', createStaffUser)
+// Staff user endpoint
+router.post('/admin/createUser', createStaffUser);
 
 module.exports = router;

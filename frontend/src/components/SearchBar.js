@@ -35,7 +35,7 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
   return (
     <div className='searchBar m-5'>
       <Dropdown className='mx-5'>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ background: 'linear-gradient(to bottom, #1acd81, #0fa968)', borderRadius: '5px' }}>
           Sort By
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -51,7 +51,7 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown className='mx-5'>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ background: 'linear-gradient(to bottom, #1acd81, #0fa968)', borderRadius: '5px' }}>
           Category
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -69,7 +69,7 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown className='mx-5'>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ background: 'linear-gradient(to bottom, #1acd81, #0fa968)', borderRadius: '5px' }}>
           Cuisine
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -86,11 +86,11 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      <form className="d-flex w-50 searchBar mx-5">
+      <form class="d-flex w-25 mx-5 p-1 border border-primary rounded-pill shadow-sm" >
         <input
-          className="form-control me-2 w-50"
+          class="form-control me-2 border-0"
           type="search"
-          placeholder="Search Bar"
+          placeholder="Search"
           aria-label="Search"
           value={item}
           onChange={handleInputChange}
