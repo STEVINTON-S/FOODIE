@@ -24,7 +24,11 @@ const useFetch = (url) => {
             setError(err.message);
           }
         });
+<<<<<<< HEAD
     }, 3000);
+=======
+    }, 1000);
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 
     return () => {
       clearTimeout(timeoutId);

@@ -20,6 +20,7 @@ const ViewCart = () => {
       try {
         const results = await Promise.all(
           itemArray.map(async ({ id, count }) => {
+<<<<<<< HEAD
             try {
               const response = await fetch(`http://localhost:8080/foods/${id}`);
               console.log(response);
@@ -32,6 +33,15 @@ const ViewCart = () => {
               console.error(`Error fetching item with id ${id}:`, err.message);
               throw err;
             }
+=======
+            const response = await fetch(`http://localhost:8080/foods/${id}`);
+            if (!response.ok) {
+              throw new Error(`Failed to fetch item with id ${id}`);
+            }
+            const data = await response.json();
+            console.log('Fetched item:', data); // Logging fetched data for debugging
+            return { ...data, count, price: parseFloat(data.price.replace('$', '')) }; // Ensure price is a number
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
           })
         );
         setFetchedItems(results);

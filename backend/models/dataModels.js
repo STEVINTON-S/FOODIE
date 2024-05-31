@@ -53,6 +53,7 @@ const blogSchema = new schema({
       required: true,
     },
   });
+<<<<<<< HEAD
 
   const staffUser = new schema({
     name:{
@@ -80,15 +81,24 @@ const blogSchema = new schema({
       required: true
     }
   });
+=======
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
   
 const slidesData = mongoose.model('slidesData', createSlides);
 const BlogsData = mongoose.model('BlogsData', blogSchema);
 const Help = mongoose.model('Help', helpSchema);
+<<<<<<< HEAD
 const StaffUser = mongoose.model('StaffUser', staffUser)
+=======
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 
 module.exports = {
     slidesData,
     BlogsData,
+<<<<<<< HEAD
     Help,
     StaffUser
+=======
+    Help
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 }

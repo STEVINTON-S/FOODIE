@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 .logo{
@@ -6,6 +7,8 @@
   font-style: normal;
 }
 
+=======
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 body{
     margin: 0;
     padding: 0;
@@ -24,6 +27,7 @@ body{
 }
 
 .profile:hover {
+<<<<<<< HEAD
   background-color: #1acd81;
 }
 
@@ -34,6 +38,9 @@ body{
 .profile-icon:hover {
   background-color: #1acd81;
   color: white;
+=======
+  background-color: #e9ecef;
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 }
 
 .nav-link {
@@ -52,7 +59,10 @@ body{
 
 .nav-link.text-danger {
   color: #dc3545;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 }
 
 .nav-link.text-danger:hover {
@@ -374,6 +384,7 @@ body, html {
   }
 }
 
+<<<<<<< HEAD
 /* Pagination */
 .custom-pagination .page-link {
   color: #1acd81;
@@ -388,4 +399,7 @@ body, html {
   background-color: rgba(26, 205, 129, 0.1);
   border-color: #1acd81;
 }
+=======
+/* Selected item modal */
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 

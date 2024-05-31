@@ -6,18 +6,25 @@ import Container from 'react-bootstrap/Container';
 import useFetch from '../FetchData/useFetch';
 import Cart from './Cart';
 import Modal from 'react-bootstrap/Modal';
+<<<<<<< HEAD
 import Loading from './loadCintent/Loading';
 import Pagination from 'react-bootstrap/Pagination';
+=======
+import Spinner from 'react-bootstrap/Spinner';
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 
 const Items = ({ category, country, searchTerm, sortCriteria }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const { data, error, isLoading } = useFetch('http://localhost:8080/foods');
   const [filteredData, setFilteredData] = useState([]);
 
+<<<<<<< HEAD
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
 
+=======
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
   useEffect(() => {
     if (data) {
       let filtered = data.filter((item) => {
@@ -52,7 +59,10 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
       }
 
       setFilteredData(filtered);
+<<<<<<< HEAD
       setCurrentPage(1);  // Reset to first page on data/filter change
+=======
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
     }
   }, [data, category, country, searchTerm, sortCriteria]);
 
@@ -64,6 +74,7 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
     setSelectedItem(null);
   };
 
+<<<<<<< HEAD
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -75,11 +86,14 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
     setCurrentPage(pageNumber);
   };
 
+=======
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
   return (
     <Container>
       {error && <div>{error.message}</div>}
       {isLoading && 
         <div className="d-flex justify-content-center align-items-center vh-100">
+<<<<<<< HEAD
           <Loading />
         </div>
       }
@@ -124,6 +138,37 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
             <Pagination.Last onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages} />
           </Pagination>
         </>
+=======
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      }
+      {filteredData && (
+        <Row>
+          {filteredData.map((item) => (
+            <Col key={item.idMeal} xs={12} sm={6} md={4} lg={3} className="mb-4">
+              <Card
+                className="zoom-effect"
+                style={{ backgroundColor: '#baf8da', border: '#13824d 1px solid'}}
+              >
+                <Card.Img
+                  variant="top"
+                  src={item.strMealThumb}
+                  style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+                  onClick={() => handleSelectItem(item)}  
+                />
+                <Card.Body style={{color: '#042f1d'}}>
+                  <Card.Title>{item.strMeal}</Card.Title>
+                  <Card.Text>{item.price}</Card.Text>
+                  <Card.Text>Delivered by {item.strArea}</Card.Text>
+                  <Cart id={item.idMeal} />
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
       )}
       <Modal show={selectedItem !== null} onHide={handleCloseModal} className='model'>
         <Modal.Header closeButton>
@@ -148,6 +193,10 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
           )}
         </Modal.Body>
       </Modal>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
     </Container>
   );
 };
