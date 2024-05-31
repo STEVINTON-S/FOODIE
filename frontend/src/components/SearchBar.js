@@ -35,11 +35,7 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
   return (
     <div className='searchBar m-5'>
       <Dropdown className='mx-5'>
-<<<<<<< HEAD
         <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ background: 'linear-gradient(to bottom, #1acd81, #0fa968)', borderRadius: '5px' }}>
-=======
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
           Sort By
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -55,11 +51,7 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown className='mx-5'>
-<<<<<<< HEAD
         <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ background: 'linear-gradient(to bottom, #1acd81, #0fa968)', borderRadius: '5px' }}>
-=======
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
           Category
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -77,11 +69,7 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown className='mx-5'>
-<<<<<<< HEAD
         <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ background: 'linear-gradient(to bottom, #1acd81, #0fa968)', borderRadius: '5px' }}>
-=======
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
           Cuisine
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -98,20 +86,10 @@ const SearchBar = ({ handleCategory, handleCountry, handleSearch, handleSortBy }
           ))}
         </Dropdown.Menu>
       </Dropdown>
-<<<<<<< HEAD
-      <form class="d-flex w-25 mx-5 p-1 border border-primary rounded-pill shadow-sm" >
+      <form className="d-flex w-25 mx-5 p-1 border border-primary rounded-pill shadow-sm">
         <input
-          class="form-control me-2 border-0"
-          type="search"
+          className="form-control me-2 border-0"
           placeholder="Search"
-=======
-      <form className="d-flex w-50 searchBar mx-5">
-        <input
-          className="form-control me-2 w-50"
-          type="search"
-          placeholder="Search Bar"
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
-          aria-label="Search"
           value={item}
           onChange={handleInputChange}
         />

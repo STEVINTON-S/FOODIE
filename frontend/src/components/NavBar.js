@@ -8,11 +8,7 @@ const NavBar = ({ toggleSideBar }) => {
     <div className="navbar-container d-flex justify-content-between align-items-center p-3 bg-light shadow-sm">
       <div className='logo d-flex align-items-center'>
         <img src={logo} alt="logo" className='mx-3 logo-img' />
-<<<<<<< HEAD
         <h1 className='logo m-2' style={{color:'#1c5f21'}}>GLUTTONOUS GLUTEN</h1>
-=======
-        <h1 className='logo-text text-danger m-2'>Gluttonous Gluten</h1>
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
       </div>
       <Nav defaultActiveKey="/" as="ul" className='navBar m-3 rounded-pill bg-white shadow-sm'>
         <Nav.Item as="li">
@@ -30,8 +26,7 @@ const NavBar = ({ toggleSideBar }) => {
         <Nav.Item as="li">
           <Nav.Link href="/help" className='text-dark m-2 rounded-pill nav-link-custom'>Contact Us</Nav.Link>
         </Nav.Item>
-<<<<<<< HEAD
-        <Nav.Item as="li" className='ms-auto porfile-container'>
+        <Nav.Item as="li" className='ms-auto'>
           <button className='profile btn btn-outline-primary m-2 rounded-pill' onClick={toggleSideBar}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -42,11 +37,6 @@ const NavBar = ({ toggleSideBar }) => {
               viewBox="0 0 16 16"
               style={{ color: '#1acd81' }}
             >
-=======
-        <Nav.Item as="li" className='ms-auto'>
-          <button className='profile btn btn-outline-primary m-2 rounded-pill' onClick={toggleSideBar}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
               <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg>
