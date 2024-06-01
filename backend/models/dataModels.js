@@ -84,10 +84,10 @@ const blogSchema = new schema({
     }
   });
 
-  const orders = new schema({
-    orderId:{
+  const orderSchema = new schema({
+    orderId: {
       type: Number,
-      default : Math.floor(Math.random()*900000000300000000000) + 1000000000000000
+      default: () => Math.floor(Math.random() * 900000000300000000000) + 1000000000000000
     },
     items: [
       {
@@ -99,23 +99,26 @@ const blogSchema = new schema({
     ],
     totalPrice: Number,
     orderDate: { type: Date, default: Date.now },
-    deliveryAddress: {type: String, default: '123, 4th street, echanari, coimbatore'},
+    deliveryAddress: { type: String, default: '123, 4th street, echanari, coimbatore' },
     status: { type: String, default: 'Delivered' },
-    paymentMethod: {type: String, default: 'Cash on Delivery'},
+    paymentMethod: { type: String, default: 'Cash on Delivery' },
     contactInfo: {
-      Phone:{ type: Number, default:9876543210},
-      email:{ type: String, default:'abc123@gmail.com'}
+      Phone: { type: Number, default: 9876543210 },
+      email: { type: String, default: 'abc123@gmail.com' }
     }
-  })
+  });
+  
   
 const slidesData = mongoose.model('slidesData', createSlides);
 const BlogsData = mongoose.model('BlogsData', blogSchema);
 const Help = mongoose.model('Help', helpSchema);
-const StaffUser = mongoose.model('StaffUser', staffUser)
+const StaffUser = mongoose.model('StaffUser', staffUser);
+const Order = mongoose.model('Order', orderSchema);
 
 module.exports = {
     slidesData,
     BlogsData,
     Help,
-    StaffUser
+    StaffUser,
+    Order
 }

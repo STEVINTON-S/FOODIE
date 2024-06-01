@@ -32,7 +32,7 @@ const Footer = () => {
                   <i className="fab fa-linkedin"></i>
                 </a>
               </div>
-              <p className="para-text text-light">Copyright 2021 &copy; Gluttonous Gluten</p>
+              <p className="para-text text-light">Copyright 2024 &copy; Gluttonous Gluten</p>
               <p className="para-text text-light">All rights reserved.</p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { slidesData, BlogsData, Help, StaffUser } = require('../models/dataModels');
+const { slidesData, BlogsData, Help, StaffUser, Order } = require('../models/dataModels');
 
 const mainPage = async (req, res) => {
   res.send({ msg: 'Welcome to the MealDB API' });
@@ -104,6 +104,17 @@ const createStaffUser = async (req, res) => {
   }
 };
 
+const orderPlaced = async (req, res) => {
+  try {
+    const data = req.body;
+    const newOrder = new Order(data);
+    const savedOrder = await newOrder.save();
+    res.status(201).json({ msg: 'Order placed', data: savedOrder });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 module.exports = {
   mainPage,
   showFoods,
@@ -114,5 +125,6 @@ module.exports = {
   showBlog,
   getHelp,
   showHelp,
-  createStaffUser
+  createStaffUser,
+  orderPlaced
 };

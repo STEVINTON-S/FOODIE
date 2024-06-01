@@ -7,13 +7,14 @@ const OrderPlaced = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [dataPosted, setDataPosted] = useState(false); // Track if data has been posted
 
   const getItemsFromLocalStorage = () => {
     const savedItems = localStorage.getItem('items');
     return savedItems ? JSON.parse(savedItems) : {};
   };
 
-  const { response, error: postError, postData } = usePostData('http://localhost:8080/orderPlaced', fetchedItems);
+  const { response, error: postError, postData } = usePostData('http://localhost:8080/orderPlaced');
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -38,20 +39,39 @@ const OrderPlaced = () => {
         );
         setFetchedItems(results);
         setShowConfetti(true);
+        setIsLoading(false); // Set loading to false here
+
+        // If data hasn't been posted yet, post it
+        if (!dataPosted) {
+          const totalPrice = results.reduce((total, item) => total + item.price * item.count, 0);
+
+          const order = {
+            items: results.map(item => ({
+              itemId: item.id,
+              name: item.name,
+              count: item.count,
+              price: item.price,
+            })),
+            totalPrice,
+            deliveryAddress: '123, 4th street, echanari, coimbatore',
+            status: 'Delivered',
+            paymentMethod: 'Cash on Delivery',
+            contactInfo: {
+              Phone: 9876543210,
+              email: 'abc123@gmail.com',
+            },
+          };
+
+          await postData(order); // Post data here after items have been fetched and formatted
+          setDataPosted(true); // Set dataPosted to true after posting data
+        }
       } catch (err) {
         setError(err.message);
-      } finally {
         setIsLoading(false);
       }
     };
     fetchItems();
   }, []);
-
-  useEffect(() => {
-    if (fetchedItems.length > 0) {
-      postData();
-    }
-  }, [fetchedItems, postData]);
 
   return (
     <div className="container-fluid vh-100 d-flex justify-content-center align-items-center">
@@ -59,7 +79,7 @@ const OrderPlaced = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {postError && <p>Error: {postError}</p>}
-      {fetchedItems.length > 0 && (
+      {fetchedItems.length > 0 && !isLoading && (
         <div className="text-center">
           <h1>Order Placed</h1>
           <h2>Thank you for your order!</h2>
@@ -68,6 +88,6 @@ const OrderPlaced = () => {
       )}
     </div>
   );
-}
+};
 
 export default OrderPlaced;

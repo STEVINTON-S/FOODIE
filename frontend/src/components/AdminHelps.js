@@ -1,9 +1,9 @@
 import React from 'react';
 import useFetch from '../FetchData/useFetch';
-import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loading from './loadCintent/Loading';
 
 const AdminHelps = () => {
   const { data, error, isLoading } = useFetch('http://localhost:8080/showHelp');
@@ -13,10 +13,8 @@ const AdminHelps = () => {
       <h1 className="text-center mb-4">Admin Helps</h1>
       {error && <div className="text-danger text-center">{error.message}</div>}
       {isLoading && 
-        <div className="d-flex justify-content-center">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
+        <div className="d-flex justify-content-center align-items-center vh-100">
+          <Loading />
         </div>
       }
       {data && 

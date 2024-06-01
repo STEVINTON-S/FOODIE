@@ -10,7 +10,8 @@ const {
   createBlogs,
   getHelp,
   showHelp,
-  createStaffUser
+  createStaffUser,
+  orderPlaced
 } = require('../controllers/routerController');
 
 // Main page
@@ -34,5 +35,8 @@ router.get('/showHelp', showHelp);
 
 // Staff user endpoint
 router.post('/admin/createUser', createStaffUser);
+
+// Oreder Placed
+router.post('/orderPlaced', orderPlaced);
 
 module.exports = router;
