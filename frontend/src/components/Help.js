@@ -34,7 +34,7 @@ const Help = () => {
           <Form.Label>Description</Form.Label>
           <Form.Control as="textarea" rows={3} value={description} onChange={(e) => setDescription(e.target.value)}/>
         </Form.Group>
-        <Button className="w-100" variant="primary" onClick={handleSubmit}>Send</Button>
+        <Button className="w-100 btn btn-success" onClick={handleSubmit}>Send</Button>
       </Form>
     </div>
     </div>

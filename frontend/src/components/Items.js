@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import useFetch from '../FetchData/useFetch';
 import Cart from './Cart';
 import Modal from 'react-bootstrap/Modal';
-import Loading from './loadContent/Loading'; // Adjusted import
+import Loading from './loadCintent/Loading'; // Adjusted import
 import Pagination from 'react-bootstrap/Pagination';
 
 const Items = ({ category, country, searchTerm, sortCriteria }) => {

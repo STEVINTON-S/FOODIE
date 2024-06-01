@@ -39,7 +39,7 @@ const CartPayment = ({ fetchedItems }) => {
           </tr>
         </thead>
       </table>
-      <PaymentBtn total={`Proceed Payment ${total.toFixed(2)}`}/>
+      <PaymentBtn total={`Proceed Payment $${total.toFixed(2)}`} />
     </div>
   );
 };

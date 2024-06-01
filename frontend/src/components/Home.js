@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Corousals from './Corousals';
 import Items from './Items';
 import SearchBar from './SearchBar';
+import ExpertsThought from './ExpertsThought';
+import CookYourMeal from './CookYourMeal';
+import TrackOrder from './TrackOrder';
+import Help from './Help'
+import RecentBlog from './RecentBlog';
 
 const Home = () => {
   const [category, setCategory] = useState('');
@@ -36,6 +41,13 @@ const Home = () => {
         handleSortBy={handleSortBy}
       />
       <Items category={category} country={country} searchTerm={searchTerm} sortCriteria={sortCriteria} />
+      <ExpertsThought/>
+      <CookYourMeal/>
+      <TrackOrder/>
+      <RecentBlog/>
+      <div className='m-5 p-4'>
+        <Help/>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const SideBar = ({ isOpen, onClose }) => {
   return (
     <Offcanvas show={isOpen} onHide={onClose} placement="end" className="custom-offcanvas">
-      <Offcanvas.Header>
+      <Offcanvas.Header closeButton>
         <Offcanvas.Title>
           <button className='profile btn m-2 rounded-pill'>
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">

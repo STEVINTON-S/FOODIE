@@ -15,6 +15,7 @@ const CreateBlog = () => {
     try {
       const postDataResponse = await postData({ name, description, dish, rating, recipe });
       console.log('Data posted:', postDataResponse);
+      alert("Thanks for your Review");
     } catch (err) {
       console.error('Error posting data:', err);
     }

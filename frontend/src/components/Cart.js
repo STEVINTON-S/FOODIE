@@ -40,9 +40,9 @@ const Cart = ({ id }) => {
 
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
-            <button onClick={handleDecrement}>-</button>
+            <button onClick={handleDecrement} className='btn btn-success'>-</button>
             <h1 style={{ margin: '0 10px' }}>{items[id] || 0}</h1>
-            <button onClick={handleIncrement}>+</button>
+            <button onClick={handleIncrement} className='btn btn-success'>+</button>
             <button className='btn btn-success' style={{ marginLeft: '10px' }} onClick={handleViewCart}>View Cart</button>
         </div>
     );

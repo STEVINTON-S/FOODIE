@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 .logo{
@@ -7,8 +6,6 @@
   font-style: normal;
 }
 
-=======
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 body{
     margin: 0;
     padding: 0;
@@ -27,7 +24,6 @@ body{
 }
 
 .profile:hover {
-<<<<<<< HEAD
   background-color: #1acd81;
 }
 
@@ -38,13 +34,10 @@ body{
 .profile-icon:hover {
   background-color: #1acd81;
   color: white;
-=======
-  background-color: #e9ecef;
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 }
 
 .nav-link {
-  color: #495057;
+  color: #02310c;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
@@ -53,16 +46,13 @@ body{
 }
 
 .nav-link:hover {
-  background-color: #e2e6ea;
+  background-color: #dafede;
   color: #000;
 }
 
 .nav-link.text-danger {
   color: #dc3545;
-<<<<<<< HEAD
   
-=======
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 }
 
 .nav-link.text-danger:hover {
@@ -136,14 +126,14 @@ body, html {
 .offcanvas-body a{
   text-decoration: none;
   padding: 1rem;
-  color: black;
-  border-bottom: 1px solid black;
+  color: #02310c;
+  border-bottom: 1px solid #0e8720;
   border-radius: 10px;
   margin: 0.5rem;
 }
 
 .offcanvas-body a:hover{
-  background-color: #9ca3a3;
+  background-color: #17d032;
 }
 
 .cartImage{
@@ -384,7 +374,6 @@ body, html {
   }
 }
 
-<<<<<<< HEAD
 /* Pagination */
 .custom-pagination .page-link {
   color: #1acd81;
@@ -399,7 +388,186 @@ body, html {
   background-color: rgba(26, 205, 129, 0.1);
   border-color: #1acd81;
 }
-=======
-/* Selected item modal */
->>>>>>> 8ba84e33e6264d90c231a394e4e23d4c5755e399
 
+/* Expert */
+
+.experts-thought {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.about-content {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.about-image {
+  flex: 1;
+  text-align: right;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  width: 500px; /* Adjust the size as needed */
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.title h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.title h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.para-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Courousal effect */
+
+.carousel-item-custom {
+  position: relative;
+}
+
+.carousel-img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.parent-container {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.btn-60 {
+  margin-top: 20px;
+}
+
+.btn-60 span {
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* cook your meal */
+.cook-your-meal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.cook-your-meal-image {
+  flex: 1;
+  text-align: left;
+}
+
+.cook-your-meal-image img {
+  max-width: 100%;
+  height: auto;
+  width: 400px; /* Adjust the size as needed */
+  border-radius: 10px;
+}
+
+.cook-your-meal-content {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.title h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1fc877;
+}
+
+.title h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.para-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cook-your-meal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cook-your-meal-content {
+    padding-left: 0;
+  }
+
+  .cook-your-meal-image {
+    margin-bottom: 2rem;
+  }
+}
+
+/* track your order */
+.track-order-container {
+  display: flex;
+  align-items: center;
+}
+
+.track-order-content {
+  flex: 1;
+  padding-right: 2rem; /* Adjust spacing between content and image */
+}
+
+.track-order-image img {
+  max-width: 100%;
+  height: auto;
+  width: 300px; /* Adjust the image size as needed */
+}
+
+.blog-container {
+  position: relative;
+  overflow: hidden;
+  height: 150px; /* Adjust height according to your needs */
+  width: 90%;
+  border: 1px solid #1aab0e;
+  border-start-end-radius: 30px;
+  border-end-start-radius: 30px;
+  box-shadow: 10px 10px #bffab8;
+}
+
+.blog-content {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.blog-item {
+  min-width: 50%; /* Display two blogs at a time */
+  box-sizing: border-box;
+  padding: 1rem;
+}

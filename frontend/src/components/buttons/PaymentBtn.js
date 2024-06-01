@@ -1,9 +1,16 @@
 import React from 'react';
 import './PaymentBtn.css';
+import { useNavigate } from 'react-router-dom';
 
-const PaymentBtn = ({total}) => {
+const PaymentBtn = ({ total }) => {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/orderPlaced');
+  };
+
   return (
-    <div className="btnwallet">
+    <div className="btnwallet" onClick={handleRedirect}>
       <button className="button">
         <span className="button__text">
           <span>{total}</span>
