@@ -1,0 +1,402 @@
+{
+    "Sky Bites": {
+        "id": "EA1",
+        "neighbourIds": {"EA2": 328, "EA3": 213, "EA4": 288, "EA5": 448},
+        "location": "Eachanari",
+        "ratings": 4.25,
+        "dishes": [
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 10}
+        ]
+    },
+    "Cloud Cuisine": {
+        "id": "EA2",
+        "neighbourIds": {"EA1": 328, "EA3": 499, "EA5": 457, "SN3": 221},
+        "location": "Eachanari",
+        "ratings": 3.72,
+        "dishes": [
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52931", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 18}
+        ]
+    },
+    "Aero Eats": {
+        "id": "EA3",
+        "neighbourIds": {"EA1": 213, "EA2": 499, "EA4": 209, "EA5": 436},
+        "location": "Eachanari",
+        "ratings": 3.79,
+        "dishes": [
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 11}
+        ]
+    },
+    "Nimbus Nourish": {
+        "id": "EA4",
+        "neighbourIds": {"EA1": 288, "EA3": 209, "EA5": 204, "KN3": 404},
+        "location": "Eachanari",
+        "ratings": 3.53,
+        "dishes": [
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53006", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 10}
+        ]
+    },
+    "Vapor Dine": {
+        "id": "EA5",
+        "neighbourIds": {"EA1": 448, "EA2": 457, "EA3": 436, "EA4": 204},
+        "location": "Eachanari",
+        "ratings": 4.36,
+        "dishes": [
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52931", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53006", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 14}
+        ]
+    },
+    "Strato Meals": {
+        "id": "KN1",
+        "neighbourIds": {"KN4": 310, "KN5": 429, "SN4": 307, "SN5": 263},
+        "location": "Kuniyamuthur",
+        "ratings": 5.00,
+        "dishes": [
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "53006", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 13}
+        ]
+    },
+    "Cloud Cravings": {
+        "id": "KN2",
+        "neighbourIds": {"KN3": 422, "KN4": 406, "KN5": 312, "UK5": 281},
+        "location": "Kuniyamuthur",
+        "ratings": 5.00,
+        "dishes": [
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 15}
+        ]
+    },
+    "Sky Grub": {
+        "id": "KN3",
+        "neighbourIds": {"EA4": 404, "KN2": 422, "KN4": 412, "KN5": 378},
+        "location": "Kuniyamuthur",
+        "ratings": 3.56,
+        "dishes": [
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52931", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "53006", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 17}
+        ]
+    },
+    "Altitude Eats": {
+        "id": "KN4",
+        "neighbourIds": {"KN1": 310, "KN2": 406, "KN3": 412, "KN5": 336},
+        "location": "Kuniyamuthur",
+        "ratings": 3.81,
+        "dishes": [
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 12}
+        ]
+    },
+    "Celestial Kitchen": {
+        "id": "KN5",
+        "neighbourIds": {"KN1": 429, "KN2": 312, "KN3": 378, "KN4": 336},
+        "location": "Kuniyamuthur",
+        "ratings": 4.50,
+        "dishes": [
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52978", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 15}
+        ]
+    },
+    "Aero Delights": {
+        "id": "SN1",
+        "neighbourIds": {"SN2": 274, "SN3":373 , "SN4": 252, "SN5": 205},
+        "location": "Sundarapuram",
+        "ratings": 4.44,
+        "dishes": [
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52931", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "53006", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52978", "availabilityStatus": true, "availableStock": 12}
+        ]
+    },
+    "Cumulus Cuisine": {
+        "id": "SN2",
+        "neighbourIds": {"SN1": 274, "SN3": 391, "SN5": 230, "UK3": 296},
+        "location": "Sundarapuram",
+        "ratings": 3.97,
+        "dishes": [
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 12}
+        ]
+    },
+    "Airy Eats": {
+        "id": "SN3",
+        "neighbourIds": {"EA2": 221, "SN1": 373, "SN2": 391, "SN4": 219},
+        "location": "Sundarapuram",
+        "ratings": 4.52,
+        "dishes": [
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 10}
+        ]
+    },
+    "Horizon Hungry": {
+        "id": "SN4",
+        "neighbourIds": {"KN1": 307, "SN1": 252, "SN3": 219, "SN5": 313},
+        "location": "Sundarapuram",
+        "ratings": 3.23,
+        "dishes": [
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52978", "availabilityStatus": true, "availableStock": 16},
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 11}
+        ]
+    },
+    "Cloud Gourmet": {
+        "id": "SN5",
+        "neighbourIds": {"KN1": 263, "SN1": 205, "SN2": 230, "SN4": 313},
+        "location": "Sundarapuram",
+        "ratings": 4.62,
+        "dishes": [
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53006", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52978", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52960", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 20}
+        ]
+    },
+    "Sky Munchies": {
+        "id": "UK1",
+        "neighbourIds": {"UK2": 470, "UK3": 218, "UK4": 399, "UK5": 451},
+        "location": "Ukkadam",
+        "ratings": 4.24,
+        "dishes": [
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52978", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52948", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 14}
+        ]
+    },
+    "Lofty Lunch": {
+        "id": "UK2",
+        "neighbourIds": {"UK1": 470, "UK3": 372, "UK4": 236, "UK5": 365},
+        "location": "Ukkadam",
+        "ratings": 3.98,
+        "dishes": [
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52804", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52980", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 11}
+        ]
+    },
+    "Haze Cuisine": {
+        "id": "UK3",
+        "neighbourIds": {"SN2": 296, "UK1": 218, "UK2": 372, "UK4": 457},
+        "location": "Ukkadam",
+        "ratings": 4.63,
+        "dishes": [
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52931", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52929", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "53060", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "53006", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 11}
+        ]
+    },
+    "Vapor Vittles": {
+        "id": "UK4",
+        "neighbourIds": {"UK1": 399, "UK2": 236, "UK3": 457, "UK5": 272},
+        "location": "Ukkadam",
+        "ratings": 4.11,
+        "dishes": [
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "53026", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52854", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52887", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 19},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52811", "availabilityStatus": true, "availableStock": 15},
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52769", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "52844", "availabilityStatus": true, "availableStock": 18}
+        ]
+    },
+    "Sky Taste": {
+        "id": "UK5",
+        "neighbourIds": {"KN2": 281, "UK1": 451, "UK2": 365, "UK4": 272},
+        "location": "Ukkadam",
+        "ratings": 3.51,
+        "dishes": [
+            {"idMeal": "52963", "availabilityStatus": true, "availableStock": 10},
+            {"idMeal": "52785", "availabilityStatus": true, "availableStock": 11},
+            {"idMeal": "53065", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52906", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53027", "availabilityStatus": true, "availableStock": 12},
+            {"idMeal": "52971", "availabilityStatus": true, "availableStock": 14},
+            {"idMeal": "52931", "availabilityStatus": true, "availableStock": 13},
+            {"idMeal": "53069", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "52977", "availabilityStatus": true, "availableStock": 18},
+            {"idMeal": "52802", "availabilityStatus": true, "availableStock": 20},
+            {"idMeal": "53028", "availabilityStatus": true, "availableStock": 17},
+            {"idMeal": "53013", "availabilityStatus": true, "availableStock": 14}
+        ]
+    }
+}
