@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import CartPayment from './CartPayment';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import useFetch from '../FetchData/useFetch';
+import Loading from './loadCintent/Loading';
 
 const ViewCart = () => {
   const [fetchedItems, setFetchedItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, error, isLoading } = useFetch('http://localhost:8080/foods'); // Update URL as needed
 
   const getItemsFromLocalStorage = () => {
     const savedItems = localStorage.getItem('items');
@@ -13,37 +14,22 @@ const ViewCart = () => {
   };
 
   useEffect(() => {
-    const fetchItems = async () => {
+    if (data) {
       const items = getItemsFromLocalStorage();
       const itemArray = Object.entries(items).map(([id, count]) => ({ id, count }));
 
-      try {
-        const results = await Promise.all(
-          itemArray.map(async ({ id, count }) => {
-            try {
-              const response = await fetch(`http://localhost:8080/foods/${id}`);
-              console.log(response);
-              if (!response.ok) {
-                throw new Error(`Failed to fetch item with id ${id}`);
-              }
-              const data = await response.json();
-              return { ...data, count, price: parseFloat(data.price.replace('$', '')) };
-            } catch (err) {
-              console.error(`Error fetching item with id ${id}:`, err.message);
-              throw err;
-            }
-          })
-        );
-        setFetchedItems(results);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+      const results = itemArray.map(({ id, count }) => {
+        const item = data.find((item) => item._id === id);
+        if (!item) {
+          console.error(`Item with id ${id} not found.`);
+          return null;
+        }
+        return { ...item, count, price: parseFloat(item.price.replace('$', '')) };
+      });
 
-    fetchItems();
-  }, []);
+      setFetchedItems(results.filter((item) => item !== null));
+    }
+  }, [data]);
 
   const handleIncrement = (id) => {
     const items = getItemsFromLocalStorage();
@@ -76,7 +62,9 @@ const ViewCart = () => {
     <div className="container mt-5">
       <h1 className="mb-4">View Cart</h1>
       {error && <div className="alert alert-danger">{error}</div>}
-      {isLoading && <div className="alert alert-info">Loading...</div>}
+      {isLoading && <div className="d-flex justify-content-center align-items-center vh-100">
+          <Loading />
+        </div>}
       {fetchedItems.length > 0 ? (
         <ul className="list-group mb-4">
           {fetchedItems.map((item, index) => (

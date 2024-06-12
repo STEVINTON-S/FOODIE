@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Blog from './components/Blog';
@@ -8,9 +8,10 @@ import SideBar from './components/SideBar';
 import Help from './components/Help';
 import CreateBlog from './components/CreateBlog';
 import ViewCart from './components/ViewCart';
-import AdminRouter from './Admin/AdminRouter';
+import AdminRouter from '../src/components/Admin/AdminRouter';
 import Footer from './components/Footer';
 import OrderPlaced from './components/OrderPlaced';
+import StaffRouter from './Staff/StaffRouter';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,11 +25,11 @@ function App() {
   };
 
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
+  const isSpecialRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/staff');
 
   return (
     <div className="App">
-      {!isAdminRoute && <NavBar toggleSideBar={toggleSideBar} />}
+      {!isSpecialRoute && <NavBar toggleSideBar={toggleSideBar} />}
       <SideBar isOpen={isSidebarOpen} onClose={onClose} />
       <div className="content">
         <Routes>
@@ -40,6 +41,8 @@ function App() {
           <Route path='/orderPlaced' element={<OrderPlaced/>}/>
           {/* Admin routes */}
           <Route path="/admin/*" element={<AdminRouter />} />
+          {/* Staff Router */}
+          <Route path="/staff/*" element={<StaffRouter/>} />
         </Routes>
       </div>
       <Footer/>
@@ -47,12 +50,4 @@ function App() {
   );
 }
 
-function AppWrapper() {
-  return (
-    <Router>
-      <App />
-    </Router>
-  );
-}
-
-export default AppWrapper;
+export default App;

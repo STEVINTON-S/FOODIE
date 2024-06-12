@@ -58,9 +58,10 @@ const blogSchema = new schema({
   });
 
   const staffUser = new schema({
-    name:{
+    username:{
       type: String,
-      required: true
+      required: true,
+      unique: true
     },
     email: {
       type: String,
@@ -82,7 +83,7 @@ const blogSchema = new schema({
       type: Number,
       required: true
     }
-  });
+  }, {Timestamp: true});
 
   const orderSchema = new schema({
     orderId: {
@@ -107,18 +108,34 @@ const blogSchema = new schema({
       email: { type: String, default: 'abc123@gmail.com' }
     }
   });
-  
+
+  const mealSchema = new mongoose.Schema({
+    idMeal: { type: String, required: true },
+    strMeal: { type: String, required: true },
+    strCategory: { type: String, required: true },
+    strArea: { type: String, required: true },
+    strMealThumb: { type: String, required: true },
+    strTags: { type: String },
+    strYoutube: { type: String },
+    ingredients: { type: String, required: true },
+    price: { type: String, required: true },
+    kitchen: { type: String, required: true },
+    available: { type: Boolean, default: true },
+    kitchenId: { type: mongoose.Schema.Types.ObjectId, ref: 'Kitchen', required: true }
+  });
   
 const slidesData = mongoose.model('slidesData', createSlides);
 const BlogsData = mongoose.model('BlogsData', blogSchema);
 const Help = mongoose.model('Help', helpSchema);
 const StaffUser = mongoose.model('StaffUser', staffUser);
 const Order = mongoose.model('Order', orderSchema);
+const Meal = mongoose.model('Meal', mealSchema);
 
 module.exports = {
     slidesData,
     BlogsData,
     Help,
     StaffUser,
-    Order
+    Order,
+    Meal
 }

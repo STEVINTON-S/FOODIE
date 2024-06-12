@@ -1,0 +1,63 @@
+/* Add this to your CSS file */
+.custom-pagination .page-link {
+    color: #13824d; 
+  }
+  
+  .custom-pagination .page-item.active .page-link {
+    background-color: #13824d; 
+    border-color: #13824d; 
+    color: white;
+  }
+  
+  .custom-pagination .page-item .page-link:hover {
+    background-color: #baf8da;
+    border-color: #13824d;
+  }
+
+  /* for login */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .login-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .login-button {
+    padding: 10px 20px;
+    background-color: rgb(103, 141, 103);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: rgb(72, 161, 72);
+  }
+  
+  .error-message {
+    margin-top: 10px;
+  }
+  
+  .text-danger {
+    color: red;
+  }
+  
+  

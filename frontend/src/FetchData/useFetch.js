@@ -9,21 +9,24 @@ const useFetch = (url) => {
   useEffect(() => {
     const source = axios.CancelToken.source();
 
-    const timeoutId = setTimeout(() => {
-      axios.get(url, { cancelToken: source.token })
-        .then((res) => {
-          setData(res.data);
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(url, { cancelToken: source.token });
+        setData(res.data);
+        setIsLoading(false);
+        setError(null);
+      } catch (err) {
+        if (axios.isCancel(err)) {
+          console.log("Request canceled");
+        } else {
           setIsLoading(false);
-          setError(null);
-        })
-        .catch((err) => {
-          if (axios.isCancel(err)) {
-            console.log("Request canceled");
-          } else {
-            setIsLoading(false);
-            setError(err.message);
-          }
-        });
+          setError(err.message);
+        }
+      }
+    };
+
+    const timeoutId = setTimeout(() => {
+      fetchData();
     }, 3000);
 
     return () => {

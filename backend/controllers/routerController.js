@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const { slidesData, BlogsData, Help, StaffUser, Order } = require('../models/dataModels');
+const { slidesData, BlogsData, Help, StaffUser, Order, Meal } = require('../models/dataModels');
+const { ObjectId } = require('mongoose').Types;
 
 const mainPage = async (req, res) => {
   res.send({ msg: 'Welcome to the MealDB API' });
@@ -7,8 +8,7 @@ const mainPage = async (req, res) => {
 
 const showFoods = async (req, res) => {
   try {
-    const connection = mongoose.connection.db.collection('Meals');
-    const meals = await connection.find().toArray();
+    const meals = await mongoose.connection.db.collection('Meals').find().toArray();
     res.json(meals);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -16,24 +16,20 @@ const showFoods = async (req, res) => {
 };
 
 const showSpecifiedFood = async (req, res) => {
-    try {
-        const connection = mongoose.connection.db.collection('Meals');
-        const id = req.params.id;
-        const meal = await connection.findOne({ _id: id }); // Use the string ID directly
-        if (!meal) {
-            return res.status(404).json({ error: 'Item not found' });
-        }
-        res.json(meal);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+  try {
+    const meal = await mongoose.connection.db.collection('Meals').findOne({ _id: mongoose.Types.ObjectId(req.params.id) });
+    if (!meal) {
+      return res.status(404).json({ error: 'Item not found' });
     }
+    res.json(meal);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
-
 
 const getSlides = async (req, res) => {
   try {
-    const connection = mongoose.connection.db.collection('slidesdatas');
-    const slides = await connection.find().toArray();
+    const slides = await mongoose.connection.db.collection('slidesdatas').find().toArray();
     res.json(slides);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -64,8 +60,7 @@ const createBlogs = async (req, res) => {
 
 const showBlog = async (req, res) => {
   try {
-    const connection = mongoose.connection.db.collection('blogsdatas');
-    const blogs = await connection.find().toArray();
+    const blogs = await mongoose.connection.db.collection('blogsdatas').find().toArray();
     res.json(blogs);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -85,8 +80,7 @@ const getHelp = async (req, res) => {
 
 const showHelp = async (req, res) => {
   try {
-    const connection = mongoose.connection.db.collection('helps');
-    const helps = await connection.find().toArray();
+    const helps = await mongoose.connection.db.collection('helps').find().toArray();
     res.json(helps);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -115,6 +109,146 @@ const orderPlaced = async (req, res) => {
   }
 };
 
+const staffLogin = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await mongoose.connection.db.collection('kitchens').findOne({ name: username });
+    if (!user || user.password !== password) {
+      return res.status(401).json({ msg: 'Invalid username or password' });
+    }
+    res.status(200).json({ kitchenId: user._id });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+const fetchStaffItems = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid kitchen ID format' });
+    }
+
+    const objectId = new mongoose.Types.ObjectId(id); // Use 'new' here
+    const meals = await mongoose.connection.db.collection('Meals').find({ kitchenId: objectId }).toArray();
+
+    if (!meals || meals.length === 0) {
+      return res.status(404).json({ error: 'No items found for the specified kitchen' });
+    }
+
+    res.json(meals);
+  } catch (err) {
+    console.error(`Error fetching items for kitchen ID ${id}:`, err.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// food Availability
+const updateAvailability = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const { available } = req.body;
+
+    // Update the item using findOneAndUpdate method with PUT
+    const updatedItem = await mongoose.connection.db.collection('Meals').findOneAndUpdate(
+      { _id: id }, // Using the provided _id as a string directly
+      { $set: { available } }, // Use $set to update the 'available' field
+      { returnOriginal: false } // Use returnOriginal: false to return the updated document
+    );
+
+    if (!updatedItem) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+    console.log("the value", updatedItem)
+    res.status(200).json({ message: 'Availability updated successfully', updatedItem: updatedItem.value });
+  } catch (err) {
+    console.log(err.message)
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// CoutomerOrders
+const coustomerOrders = async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.json(orders);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// create the meal
+const createMeal = async (req, res) => {
+  const { idMeal, strMeal, strCategory, strArea, strMealThumb, strTags, strYoutube, ingredients, price, kitchen, available } = req.body;
+
+  try {
+    // Fetch the existing database connection
+    const existingDatabaseConnection = await mongoose.connection;
+
+    // Ensure the existing database connection is successful
+    if (!existingDatabaseConnection) {
+      return res.status(500).json({ error: 'Failed to connect to the existing database' });
+    }
+
+    // Access the existing Meals collection
+    const existingMealsCollection = existingDatabaseConnection.collection('Meals');
+
+    // Find the kitchen based on the provided kitchen name
+    const existingKitchen = await existingDatabaseConnection.collection('kitchens').findOne({ name: kitchen });
+
+    // Ensure the kitchen exists
+    if (!existingKitchen) {
+      return res.status(404).json({ error: 'Kitchen not found' });
+    }
+
+    // Create a new meal object
+    const newMeal = {
+      idMeal,
+      strMeal,
+      strCategory,
+      strArea,
+      strMealThumb,
+      strTags,
+      strYoutube,
+      ingredients,
+      price,
+      kitchen,
+      available,
+      kitchenId: existingKitchen._id
+    };
+
+    // Save the new meal to the Meals collection
+    await existingMealsCollection.insertOne(newMeal);
+
+    return res.status(201).json({ msg: 'Meal created successfully' });
+  } catch (err) {
+    console.error('Error creating meal:', err);
+    return res.status(500).json({ error: err.message });
+  }
+};
+
+// admin Login
+const adminLogin = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await mongoose.connection.db.collection('admin').findOne({ username: username });
+    console.log(user);
+    if (!user || user.password !== password) {
+      return res.status(401).json({ msg: 'Invalid username or password' });
+    }
+    res.status(200).json({ kitchenId: user._id });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+
+
 module.exports = {
   mainPage,
   showFoods,
@@ -126,5 +260,11 @@ module.exports = {
   getHelp,
   showHelp,
   createStaffUser,
-  orderPlaced
+  orderPlaced,
+  staffLogin,
+  fetchStaffItems,
+  updateAvailability,
+  coustomerOrders,
+  createMeal,
+  adminLogin
 };

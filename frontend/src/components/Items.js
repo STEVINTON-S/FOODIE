@@ -52,7 +52,7 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
       }
 
       setFilteredData(filtered);
-      setCurrentPage(1);  // Reset to first page on data/filter change
+      setCurrentPage(1);
     }
   }, [data, category, country, searchTerm, sortCriteria]);
 
@@ -102,7 +102,7 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
                     <Card.Title>{item.strMeal}</Card.Title>
                     <Card.Text>{item.price}</Card.Text>
                     <Card.Text>Delivered by {item.strArea}</Card.Text>
-                    <Cart id={item.idMeal} />
+                    {item.available ? <Cart id={item.idMeal} /> : <p className='text-danger'>Currently Unavailable</p>}
                   </Card.Body>
                 </Card>
               </Col>
