@@ -571,3 +571,159 @@ body, html {
   box-sizing: border-box;
   padding: 1rem;
 }
+
+/* Meal Cook */
+
+.meal-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown {
+  background-color: #e0f2f1;
+}
+
+.input-field {
+  background-color: #e8f5e9;
+}
+
+.image-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s;
+}
+
+.image-item.selected {
+  border-color: #4caf50;
+}
+
+.image-item img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.image-item span {
+  margin-top: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Mela Cook Pricing */
+
+.pricing-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.meal-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.meal-details h2 {
+  color: #007BFF;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details-section {
+  margin-bottom: 20px;
+}
+
+.details-section h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ingredient-list, .allergen-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ingredient-item, .allergen-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.total-price {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.total-price p {
+  font-size: 1.5em;
+  color: #28a745;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+  
+}
+
+

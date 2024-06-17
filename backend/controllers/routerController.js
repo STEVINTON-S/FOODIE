@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { slidesData, BlogsData, Help, StaffUser, Order, Meal } = require('../models/dataModels');
+const { slidesData, BlogsData, Help, StaffUser, Order, Meal, CookMeal } = require('../models/dataModels');
 const { ObjectId } = require('mongoose').Types;
 
 const mainPage = async (req, res) => {
@@ -162,7 +162,6 @@ const updateAvailability = async (req, res) => {
     if (!updatedItem) {
       return res.status(404).json({ error: 'Item not found' });
     }
-    console.log("the value", updatedItem)
     res.status(200).json({ message: 'Availability updated successfully', updatedItem: updatedItem.value });
   } catch (err) {
     console.log(err.message)
@@ -246,8 +245,44 @@ const adminLogin = async (req, res) => {
   }
 };
 
+// Cook your Meal
+const cookYourMeal = async (req, res) => {
+  let mealData = req.body;
 
+  try {
+    // Validate and transform mealData
+    if (!mealData.mealType || !Array.isArray(mealData.mainIngredients) || mealData.mainIngredients.length === 0 ||
+        !mealData.servingSize || !mealData.cookingMethod || !mealData.prepTime || !mealData.process || !mealData.meal || !mealData.meal.totalPrice) {
+      return res.status(400).json({ error: 'Required meal data is missing or incomplete' });
+    }
 
+    mealData.servingSize = Number(mealData.servingSize);
+    mealData.prepTime = Number(mealData.prepTime);
+    mealData.totalPrice = Number(mealData.meal.totalPrice);
+
+    if (isNaN(mealData.servingSize) || isNaN(mealData.prepTime) || isNaN(mealData.totalPrice)) {
+      return res.status(400).json({ error: 'Invalid numeric values in meal data' });
+    }
+    const newMeal = new CookMeal({
+      mealType: mealData.mealType,
+      mainIngredients: mealData.mainIngredients,
+      dietaryPreferences: mealData.dietaryPreferences,
+      servingSize: mealData.servingSize,
+      cookingMethod: mealData.cookingMethod,
+      allergens: mealData.allergens,
+      prepTime: mealData.prepTime,
+      process: mealData.process,
+      totalPrice: mealData.totalPrice
+    });
+
+    const savedMeal = await newMeal.save();
+
+    res.status(201).json(savedMeal);
+  } catch (error) {
+    console.error('Error saving meal:', error);
+    res.status(500).json({ error: 'Failed to save meal' });
+  }
+};
 
 module.exports = {
   mainPage,
@@ -266,5 +301,6 @@ module.exports = {
   updateAvailability,
   coustomerOrders,
   createMeal,
-  adminLogin
+  adminLogin,
+  cookYourMeal
 };

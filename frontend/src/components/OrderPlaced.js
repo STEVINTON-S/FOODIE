@@ -37,9 +37,9 @@ const OrderPlaced = () => {
       const order = {
         items: fetchedItems.map(item => ({
           itemId: item.id,
-          name: item.name, // If you have name stored in local storage
+          name: item.name,
           count: item.count,
-          price: item.price, // If you have price stored in local storage
+          price: item.price,
         })),
         totalPrice,
         deliveryAddress: '123, 4th street, echanari, coimbatore',
@@ -51,8 +51,8 @@ const OrderPlaced = () => {
         },
       };
 
-      postData(order); // Post data here after items have been fetched and formatted
-      setDataPosted(true); // Set dataPosted to true after posting data
+      postData(order);
+      setDataPosted(true);
     }
     setIsLoading(false);
   }, [postData, dataPosted]);

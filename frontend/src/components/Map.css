@@ -1,0 +1,22 @@
+/* OrderTracking.css */
+.map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.map-box {
+  width: 90%;
+  max-width: 800px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.map-inner {
+  height: 400px;
+  width: 100%;
+}

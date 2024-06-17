@@ -5,14 +5,17 @@ import SearchBar from './SearchBar';
 import ExpertsThought from './ExpertsThought';
 import CookYourMeal from './CookYourMeal';
 import TrackOrder from './TrackOrder';
-import Help from './Help'
+import Help from './Help';
 import RecentBlog from './RecentBlog';
+import Bot from './ChatBot/Bot'; // Adjust the path as necessary
+import BotIcon from './ChatBot/BotIcon'; // Adjust the path as necessary
 
 const Home = () => {
   const [category, setCategory] = useState('');
   const [country, setCountry] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortCriteria, setSortCriteria] = useState('');
+  const [botVisible, setBotVisible] = useState(false);
 
   const handleCategory = (item) => {
     setCategory(item);
@@ -30,6 +33,10 @@ const Home = () => {
     setSortCriteria(criteria);
   };
 
+  const toggleBot = () => {
+    setBotVisible(!botVisible);
+  };
+
   return (
     <div>
       <Corousals />
@@ -41,13 +48,15 @@ const Home = () => {
         handleSortBy={handleSortBy}
       />
       <Items category={category} country={country} searchTerm={searchTerm} sortCriteria={sortCriteria} />
-      <ExpertsThought/>
-      <CookYourMeal/>
-      <TrackOrder/>
-      <RecentBlog/>
+      <ExpertsThought />
+      <CookYourMeal />
+      <TrackOrder />
+      <RecentBlog />
       <div className='m-5 p-4'>
-        <Help/>
+        <Help />
       </div>
+      <BotIcon onClick={toggleBot} />
+      {botVisible && <Bot visible={botVisible} />}
     </div>
   );
 };

@@ -29,11 +29,13 @@
     padding: 10px;
     box-sizing: border-box;
     border-radius: 30px;
+    width: 50vw;
+    height: 50vh;
   }
 
   .chart-canvas canvas {
-    width: 80px; /* Adjust width as needed */
-    height: 80px; /* Adjust height as needed */
+    width: 100px;
+    height: 100px;
   }
   
   

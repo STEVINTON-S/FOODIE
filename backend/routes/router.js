@@ -17,7 +17,8 @@ const {
   updateAvailability,
   coustomerOrders,
   createMeal,
-  adminLogin
+  adminLogin,
+  cookYourMeal
 } = require('../controllers/routerController');
 
 // Main page
@@ -61,7 +62,10 @@ router.get('/orders', coustomerOrders);
 router.post('/meals', createMeal);
 
 // admin Login
-router.post('/admin/login', adminLogin)
+router.post('/admin/login', adminLogin);
+
+// Cook Your Meal
+router.post('/mealCook', cookYourMeal)
 
 
 module.exports = router;

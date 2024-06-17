@@ -38,9 +38,6 @@ const Items = ({ category, country, searchTerm, sortCriteria }) => {
         case 'delivery_time':
           filtered = filtered.sort((a, b) => a.strArea.localeCompare(b.strArea));
           break;
-        case 'rating':
-          // There is no rating field in the schema
-          break;
         case 'cost_low_to_high':
           filtered = filtered.sort((a, b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)));
           break;

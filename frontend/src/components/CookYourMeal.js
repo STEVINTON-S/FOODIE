@@ -16,7 +16,6 @@ const CookYourMeal = () => {
         </div>
         <div className="cook-your-meal-content" data-aos="fade-left">
         <div className="title">
-            <h4>Coming Soon...</h4>
             <h2>Cook Your Meal</h2>
           </div>
           <p className="para-text">
@@ -25,6 +24,7 @@ const CookYourMeal = () => {
           <p className="para-text">
             Stay tuned for updates on this exciting feature! We're working hard to make your ordering experience even more convenient and transparent.
           </p>
+          <a className='btn btn-success' href='/mealCook'>Try now</a>
         </div>
       </section>
     </div>
